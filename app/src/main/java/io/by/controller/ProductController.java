@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/product")
 @CrossOrigin("*")
-public class ProductController {
+public class ProductController implements ProductControllerInterface {
 
     @Autowired
     private final ProductService productService;
@@ -34,7 +35,7 @@ public class ProductController {
 
     // successfully
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@Valid @RequestBody Product product) {
         return productService.addProduct(product);
     }
 

@@ -62,15 +62,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="645" y="288" width="666" height="545" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606455668346">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="645" y="288" width="666" height="545" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/56.27.1864.1053@56.27.1864.1053" timestamp="1606455668346" />
-    <state x="771" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1606455727782">
+    <state x="771" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1607266407374">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state x="771" y="311" width="424" height="491" key="FileChooserDialogImpl/56.27.1864.1053@56.27.1864.1053" timestamp="1606455727782" />
+    <state x="771" y="311" width="424" height="491" key="FileChooserDialogImpl/56.27.1864.1053@56.27.1864.1053" timestamp="1607266407374" />
   </component>
 </project>

@@ -1,9 +1,21 @@
 package io.by.model;
 
 
+import org.springframework.data.annotation.Id;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Product {
+    @Id
     private String id;
+
+    @NotNull
+    @Size(min=5, message="Product title must be at least 5 characters long")
+    @NotBlank(message = "title is required")
     private String title;
+
     private int price;
     private String category;
 
