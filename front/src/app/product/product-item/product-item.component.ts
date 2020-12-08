@@ -11,19 +11,22 @@ import { PRODUCTS } from 'src/app/mock-products'
 })
 export class ProductItemComponent implements OnInit {
 
-  product: Product | undefined
   products = PRODUCTS;
+  selectedProduct: Product | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.product = new Product("1", "IphoneX", 400);
+
   }
 
-  incrementPrice() : void{
-    if(this.product != undefined) {
-        console.log(this.product.price);
-    }
+  incrementPrice(product: Product) : void{
+    product.price++;
+  }
+
+  onSelect(product: Product): void {
+    console.log(this.selectedProduct?.name)
+    this.selectedProduct = product;
   }
 
 }
