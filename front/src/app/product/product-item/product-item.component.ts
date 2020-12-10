@@ -12,16 +12,32 @@ import { PRODUCTS } from 'src/app/mock-products'
 export class ProductItemComponent implements OnInit {
 
   products = PRODUCTS;
-  selectedProduct: Product | undefined;
+  selectedProduct: Product;
 
   constructor() { }
 
   ngOnInit(): void {
 
+    this.selectedProduct = {
+      id: '9999',
+      name: 'My Test Product',
+      imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-gold-select-201810?wid=892&hei=820&&qlt=80&.v=1603332211000',
+      price: 50,
+      isOnSale: true,
+      quantityInCart: 0
+    };
+
   }
 
-  incrementPrice(product: Product) : void{
-    product.price++;
+  incrementInCart() : void{
+    if(this.selectedProduct != undefined)
+      this.selectedProduct.quantityInCart++;
+  }
+
+  decrementInCart() {
+    if(this.selectedProduct != undefined && this.selectedProduct.quantityInCart > 0) {
+      this.selectedProduct.quantityInCart--;
+    }
   }
 
   onSelect(product: Product): void {

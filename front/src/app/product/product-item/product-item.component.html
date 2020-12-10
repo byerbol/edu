@@ -1,4 +1,4 @@
-<h2>Products</h2>
+<!-- <h2>Products</h2>
 <ul class="products">
     <li *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
         <span class="badge">{{product.id}}</span> {{product.name}}
@@ -15,4 +15,16 @@
     </label>
     </div>
 
+</div> -->
+<div class="selectedProduct-item" [class]="selectedProduct.isOnSale ? 'selectedProduct-item sale' : ''">
+    <div class="image"><img [src]="selectedProduct.imageUrl"></div>
+    <div class="details">
+        <div>{{selectedProduct.name}}</div>
+        <div>$ {{selectedProduct.price}}</div>
+        <div>
+            <button [disabled]="selectedProduct.quantityInCart == 0" (click)="decrementInCart()">-</button>
+            <span>{{selectedProduct.quantityInCart}}</span>
+            <button (click)="incrementInCart()">+</button>
+        </div>
+    </div>
 </div>
