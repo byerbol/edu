@@ -1,48 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product';
-import { PRODUCTS } from 'src/app/mock-products'
-
-// src/app/mock-products.ts
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Product } from '../../model/product';
+import { ProductQuantityChange } from '../../model/product-quantity-change';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  styleUrls: ['./product-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductItemComponent implements OnInit {
-
-  products = PRODUCTS;
-  selectedProduct: Product;
+export class ProductItemComponent {
+  @Input() public product!: Product;
+  @Output() private quantityChange: EventEmitter<ProductQuantityChange> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
-
-    this.selectedProduct = {
-      id: '9999',
-      name: 'My Test Product',
-      imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-gold-select-201810?wid=892&hei=820&&qlt=80&.v=1603332211000',
-      price: 50,
-      isOnSale: true,
-      quantityInCart: 0
-    };
-
-  }
-
-  incrementInCart() : void{
-    if(this.selectedProduct != undefined)
-      this.selectedProduct.quantityInCart++;
+  incrementInCart() {
+    this.quantityChange.emit({product: this.product, changeInQuantity: 1});
   }
 
   decrementInCart() {
-    if(this.selectedProduct != undefined && this.selectedProduct.quantityInCart > 0) {
-      this.selectedProduct.quantityInCart--;
+    if (this.product.quantityInCart > 0) {
+      this.quantityChange.emit({product: this.product, changeInQuantity: -1});
     }
-  }
-
-  onSelect(product: Product): void {
-    console.log(this.selectedProduct?.name)
-    this.selectedProduct = product;
   }
 
 }
