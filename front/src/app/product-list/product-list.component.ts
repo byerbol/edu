@@ -42,6 +42,14 @@ export class ProductListComponent implements OnInit {
         price: 250,
         isOnSale: true,
         quantityInCart: 0
+      },
+      {
+        id: "4",
+        name: 'Test Product - 4',
+        imageUrl: 'http://via.placeholder.com/150x150',
+        price: 250,
+        isOnSale: false,
+        quantityInCart: 0
       }
     ];
   }
